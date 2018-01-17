@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+property_building_all,property.building,model_property_building,,1,0,0,0
+property_building_employee,property.building,model_property_building,base.group_user,1,1,1,1
+property_land_all,property.land,model_property_land,,1,0,0,0
+property_land_employee,property.land,model_property_land,base.group_user,1,1,1,1
+property_floor_all,property.floor,model_property_floor,,1,0,0,0
+property_floor_employee,property.floor,model_property_floor,base.group_user,1,1,1,1
+property_room_all,property.room,model_property_room,,1,0,0,0
+property_room_employee,property.room,model_property_room,base.group_user,1,1,1,1

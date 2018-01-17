@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="property_floor_view_tree" model="ir.ui.view">
+            <field name="name">Form Property Floor</field>
+            <field name="model">property.floor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="building_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_floor_view_form" model="ir.ui.view">
+            <field name="name">Form Property Floor</field>
+            <field name="model">property.floor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name"/>
+                            <field name="building_id"/>
+                            <field name="active"/>
+                        </group>
+                        <notebook>
+                            <page name="page_room" string="Rooms">
+                                <field name="room_ids" nolabel="1" colspan="4">
+                                    <tree>
+                                        <field name="name" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="page_note" string="Note">
+                                <field name="note"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_floor_action" model="ir.actions.act_window">
+            <field name="name">Floors</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.floor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Property Floor.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Floors"
+            id="property_floor_menu"
+            action="property_floor_action"
+            parent="menu_property_base_config"
+            sequence="3"/>
+
+    </data>
+</openerp>

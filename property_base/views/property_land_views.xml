@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="property_land_view_tree" model="ir.ui.view">
+            <field name="name">Form Property Land</field>
+            <field name="model">property.land</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_land_view_form" model="ir.ui.view">
+            <field name="name">Form Property Land</field>
+            <field name="model">property.land</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group colspan="4" col="2">
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                        <notebook>
+                            <page name="page_building" string="Buildings">
+                                <field name="building_ids" nolabel="1" colspan="4">
+                                    <tree string='Buildings'>
+                                        <field name="name" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="page_note" string="Note">
+                                <field name="note" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_land_action" model="ir.actions.act_window">
+            <field name="name">Lands</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.land</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Property Land.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Lands"
+            id="property_land_menu"
+            action="property_land_action"
+            parent="menu_property_base_config"
+            sequence="1"/>
+
+    </data>
+</openerp>
