@@ -7,12 +7,9 @@ from openerp import models, fields
 
 class PropertyFloor(models.Model):
     _name = "property.floor"
+    _inherit = "property.object"
     _description = "Floor"
 
-    name = fields.Char(
-        string="Floor",
-        required=True,
-        )
     building_id = fields.Many2one(
         string="Building",
         comodel_name="property.building",
@@ -23,10 +20,3 @@ class PropertyFloor(models.Model):
         comodel_name="property.room",
         inverse_name="floor_id",
         )
-    note = fields.Text(
-        string="Notes"
-    )
-    active = fields.Boolean(
-        string="Active",
-        default=True
-    )

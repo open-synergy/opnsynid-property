@@ -7,21 +7,11 @@ from openerp import models, fields
 
 class PropertyRoom(models.Model):
     _name = "property.room"
+    _inherit = "property.object"
     _description = "Room"
 
-    name = fields.Char(
-        string="Room",
-        required=True,
-        )
     floor_id = fields.Many2one(
         string="Floor",
         comodel_name="property.floor",
         required=False,
         )
-    note = fields.Text(
-        string="Notes"
-    )
-    active = fields.Boolean(
-        string="Active",
-        default=True
-    )
