@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+<record id="property_reservation_common_view_tree" model="ir.ui.view">
+    <field name="name">Form Property Reservation Common</field>
+    <field name="model">property.reservation_common</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="property_id"/>
+            <field name="date_order"/>
+            <field name="date_start"/>
+            <field name="date_end"/>
+            <field name="partner_id"/>
+            <field name="state"/>
+        </tree>
+    </field>
+</record>
+
+<record id="property_reservation_common_view_form" model="ir.ui.view">
+    <field name="name">Form Property Reservation Common</field>
+    <field name="model">property.reservation_common</field>
+    <field name="arch" type="xml">
+        <form>
+            <header>
+                <button name="button_confirm" string="Confirm" class="oe_highlight" type="object" states="draft"/>
+                <button name="button_approve" string="Approve" class="oe_highlight" type="object" states="confirm"/>
+                <button name="button_start" string="Start" class="oe_highlight" type="object" states="approve"/>
+                <button name="button_finish" string="Finish" class="oe_highlight" type="object" states="start"/>
+                <button name="button_cancel" string="Cancel" type="object" states="draft,confirm,approve,start,finish"/>
+                <button name="button_restart" string="Set to Draft" class="oe_highlight" type="object" states="cancel"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve,start,finish"/>
+            </header>
+            <sheet>
+                <label for="name"/>
+                <h1>
+                    <field name="name"/>
+                </h1>
+                <group name="group_1" colspan="4" col="2">
+                    <group name="group_1_1" colspan="1" col="2">
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="type_id" invisible="1"/>
+                        <field name="property_id"/>
+                        <field name="partner_id"/>
+                    </group>
+                    <group name="group_1_2" colspan="1" col="2">
+                        <field name="date_order"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="page_note" string="Notes">
+                        <field name="note"/>
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<record id="property_reservation_common_view_search" model="ir.ui.view">
+    <field name="name">Search Property Reservation Common</field>
+    <field name="model">property.reservation_common</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="property_id"/>
+            <field name="partner_id"/>
+            <group name="grp_filter_state" string="State">
+                <filter name="filter_draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="filter_confirm" string="Waiting for Approval" domain="[('state','=','confirm')]"/>
+                <filter name="filter_approve" string="Ready to Process" domain="[('state','=','approve')]"/>
+                <filter name="filter_start" string="Start" domain="[('state','=','start')]"/>
+                <filter name="filter_finish" string="Finish" domain="[('state','=','finish')]"/>
+                <filter name="filter_cancel" string="Cancel" domain="[('state','=','cancel')]"/>
+            </group>
+            <group name="grp_group" string="Group By">
+                <filter name="grp_company" string="Company" context="{'group_by':'property_id'}" groups="base.group_multi_company"/>
+                <filter name="grp_property" string="Property" context="{'group_by':'property_id'}"/>
+                <filter name="grp_partner" string="Partner" context="{'group_by':'partner_id'}"/>
+                <filter name="grp_date_order_month" string="Date Order by Month" context="{'group_by':'date_order:month'}"/>
+                <filter name="grp_date_order_day" string="Date Order by Day" context="{'group_by':'date_order:day'}"/>
+                <filter name="grp_date_start_month" string="Date Start by Month" context="{'group_by':'date_start:month'}"/>
+                <filter name="grp_date_start_day" string="Date Start by Day" context="{'group_by':'date_start:day'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+</data>
+</openerp>

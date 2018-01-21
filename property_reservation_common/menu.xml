@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+        <menuitem
+            name="Reservation"
+            id="menu_property_reservation_root"
+            parent="property_base.menu_property_base"
+            sequence="1"/>
+
+    </data>
+</openerp>

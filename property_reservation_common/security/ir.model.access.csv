@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+property_reservation_type_all,property.reservation_type,model_property_reservation_type,,1,0,0,0
+property_reservation_type_employee,property.reservation_type,model_property_reservation_type,base.group_user,1,1,1,1
