@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="property_reservation_type_view_tree" model="ir.ui.view">
+            <field name="name">Form Property Reservation Type</field>
+            <field name="model">property.reservation_type</field>
+            <field name="arch" type="xml">
+                <tree create="false" delete="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_reservation_type_view_form" model="ir.ui.view">
+            <field name="name">Form Property Reservation Type</field>
+            <field name="model">property.reservation_type</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false">
+                    <sheet>
+                        <group colspan="4" col="2">
+                            <field name="name"/>
+                            <field name="sequence_id"/>
+                        </group>
+                        <notebook>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_reservation_type_action" model="ir.actions.act_window">
+            <field name="name">Reservation Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.reservation_type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a Property Reservation Type.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Reservation Types"
+            id="property_reservation_type_menu"
+            action="property_reservation_type_action"
+            parent="property_base.menu_property_base_config"
+            sequence="2"/>
+
+    </data>
+</openerp>
