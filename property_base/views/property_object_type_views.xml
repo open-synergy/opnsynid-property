@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="property_object_type_view_tree" model="ir.ui.view">
+            <field name="name">property.object_type tree</field>
+            <field name="model">property.object_type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_object_type_view_form" model="ir.ui.view">
+            <field name="name">property.object_type form</field>
+            <field name="model">property.object_type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                        <notebook>
+                            <page name="page_note" sring="Note">
+                                <field name="note"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_object_type_action" model="ir.actions.act_window">
+            <field name="name">Property Object Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.object_type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            name="Object Types"
+            id="property_object_type_menu"
+            action="property_object_type_action"
+            parent="menu_property_base_config"
+            sequence="4"/>
+
+    </data>
+</openerp>
