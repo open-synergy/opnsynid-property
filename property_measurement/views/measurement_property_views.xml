@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+<record id="measurement_property_view_search" model="ir.ui.view">
+    <field name="name">property.measurement form</field>
+    <field name="model">property.measurement</field>
+    <field name="inherit_id" ref="measurement_common.measurement_common_view_search"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="measurement_property_view_calendar" model="ir.ui.view">
+    <field name="name">property.measurement calendar</field>
+    <field name="model">property.measurement</field>
+    <field name="inherit_id" ref="measurement_common.measurement_common_view_calendar"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="measurement_property_view_tree" model="ir.ui.view">
+    <field name="name">property.measurement tree</field>
+    <field name="model">property.measurement</field>
+    <field name="inherit_id" ref="measurement_common.measurement_common_view_tree"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="measurement_property_view_form" model="ir.ui.view">
+    <field name="name">property.measurement form</field>
+    <field name="model">property.measurement</field>
+    <field name="inherit_id" ref="measurement_common.measurement_common_view_form"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="measurement_property_action" model="ir.actions.act_window">
+    <field name="name">Measurements for Property</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">property.measurement</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,calendar,form</field>
+</record>
+
+<menuitem
+    id="measurement_property_menu"
+    name="Properties"
+    parent="measurement_common.measurement_menu"
+    action="measurement_property_action"
+    sequence="2"
+    />
+
+</data>
+</openerp>
