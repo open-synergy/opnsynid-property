@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+<record id="base_workflow_property_measurement" model="base.workflow_policy">
+    <field name="model_id" ref="property_measurement.model_property_measurement"/>
+</record>
+<record id="base_workflow_line_property_measurement_confirm" model="base.workflow_policy_line">
+    <field name="workflow_id" ref="property_measurement.base_workflow_property_measurement"/>
+    <field name="field_id" search="[('model_id.model','=','property.measurement'),('name','=','confirm_ok')]"/>
+    <field name="python_code">result = document.type_id.measurement_confirm_grp_ids.ids</field>
+</record>
+<record id="base_workflow_line_property_measurement_approve" model="base.workflow_policy_line">
+    <field name="workflow_id" ref="property_measurement.base_workflow_property_measurement"/>
+    <field name="field_id" search="[('model_id.model','=','property.measurement'),('name','=','approve_ok')]"/>
+    <field name="python_code">result = document.type_id.measurement_approve_grp_ids.ids</field>
+</record>
+<record id="base_workflow_line_property_measurement_start" model="base.workflow_policy_line">
+    <field name="workflow_id" ref="property_measurement.base_workflow_property_measurement"/>
+    <field name="field_id" search="[('model_id.model','=','property.measurement'),('name','=','start_ok')]"/>
+    <field name="python_code">result = document.type_id.measurement_start_grp_ids.ids</field>
+</record>
+<record id="base_workflow_line_property_measurement_done" model="base.workflow_policy_line">
+    <field name="workflow_id" ref="property_measurement.base_workflow_property_measurement"/>
+    <field name="field_id" search="[('model_id.model','=','property.measurement'),('name','=','done_ok')]"/>
+    <field name="python_code">result = document.type_id.measurement_done_grp_ids.ids</field>
+</record>
+<record id="base_workflow_line_property_measurement_cancel" model="base.workflow_policy_line">
+    <field name="workflow_id" ref="property_measurement.base_workflow_property_measurement"/>
+    <field name="field_id" search="[('model_id.model','=','property.measurement'),('name','=','cancel_ok')]"/>
+    <field name="python_code">result = document.type_id.measurement_cancel_grp_ids.ids</field>
+</record>
+<record id="base_workflow_line_property_measurement_restart" model="base.workflow_policy_line">
+    <field name="workflow_id" ref="property_measurement.base_workflow_property_measurement"/>
+    <field name="field_id" search="[('model_id.model','=','property.measurement'),('name','=','restart_ok')]"/>
+    <field name="python_code">result = document.type_id.measurement_restart_grp_ids.ids</field>
+</record>
+</data>
+</openerp>

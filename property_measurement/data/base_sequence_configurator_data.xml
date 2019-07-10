@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+<record id="base_sequence_measurement_property" model="base.sequence_configurator">
+    <field name="model_id" ref="property_measurement.model_property_measurement"/>
+    <field name="sequence_field_id" search="[('model_id.model','=','property.measurement'),('name','=','name')]"/>
+    <field name="fallback_sequence_id" ref="property_measurement.sequence_measurement_property"/>
+</record>
+
+<record id="base_sequence_measurement_property_line" model="base.sequence_configurator_line">
+    <field name="generator_id" ref="property_measurement.base_sequence_measurement_property"/>
+    <field name="sequence" eval="1"/>
+    <field name="sequence_computation_code">result = document.type_id.sequence_id</field>
+</record>
+</data>
+</openerp>
