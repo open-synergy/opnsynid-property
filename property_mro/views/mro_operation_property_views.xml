@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+<record id="mro_operation_property_view_search" model="ir.ui.view">
+    <field name="name">mro.operation_property form</field>
+    <field name="model">mro.operation_property</field>
+    <field name="inherit_id" ref="mro_common.mro_operation_common_view_search"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="mro_operation_property_view_calendar" model="ir.ui.view">
+    <field name="name">mro.operation_property calendar</field>
+    <field name="model">mro.operation_property</field>
+    <field name="inherit_id" ref="mro_common.mro_operation_common_view_calendar"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="mro_operation_property_view_tree" model="ir.ui.view">
+    <field name="name">mro.operation_property tree</field>
+    <field name="model">mro.operation_property</field>
+    <field name="inherit_id" ref="mro_common.mro_operation_common_view_tree"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="mro_operation_property_view_form" model="ir.ui.view">
+    <field name="name">mro.operation_property form</field>
+    <field name="model">mro.operation_property</field>
+    <field name="inherit_id" ref="mro_common.mro_operation_common_view_form"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
+<record id="mro_operation_property_action" model="ir.actions.act_window">
+    <field name="name">Operations for Property</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">mro.operation_property</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,calendar,form</field>
+</record>
+
+<menuitem
+    id="mro_operation_property_menu"
+    name="Properties"
+    parent="mro_common.mro_operation_menu"
+    action="mro_operation_property_action"
+    sequence="2"
+    />
+
+</data>
+</openerp>
