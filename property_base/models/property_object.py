@@ -32,3 +32,10 @@ class PropertyObject(models.Model):
         string="Type",
         comodel_name="property.object_type",
     )
+    size = fields.Float(
+        string="Property Size",
+    )
+    size_uom_id = fields.Many2one(
+        string="UoM",
+        comodel_name="product.uom",
+    )
