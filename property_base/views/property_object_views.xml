@@ -13,6 +13,8 @@
                     <field name="name"/>
                     <field name="type_id"/>
                     <field name="parent_id"/>
+                    <field name="size"/>
+                    <field name="size_uom_id"/>                    
                 </tree>
             </field>
         </record>
@@ -28,6 +30,8 @@
                             <field name="active"/>
                             <field name="type_id"/>
                             <field name="parent_id"/>
+                            <field name="size"/>
+                            <field name="size_uom_id"/>
                         </group>
                         <notebook>
                             <page name="page_note" sring="Note">

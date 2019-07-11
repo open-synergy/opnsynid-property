@@ -3,12 +3,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Base Property Management",
-    "version": "8.0.2.0.0",
+    "version": "8.0.2.1.0",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
     "license": "AGPL-3",
     "installable": True,
     "depends": [
+        "product",
     ],
     "data": [
         "security/ir.model.access.csv",
