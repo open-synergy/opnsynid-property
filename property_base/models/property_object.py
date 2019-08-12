@@ -13,6 +13,10 @@ class PropertyObject(models.Model):
         string="Property",
         required=True,
     )
+    product_id = fields.Many2one(
+        string="Product",
+        comodel_name="product.product",
+    )
     note = fields.Text(
         string="Notes"
     )
@@ -31,4 +35,16 @@ class PropertyObject(models.Model):
     type_id = fields.Many2one(
         string="Type",
         comodel_name="property.object_type",
+    )
+    size = fields.Char(
+        string="Size",
+        required=True,
+    )
+    journal_id = fields.Many2one(
+        string="Journal",
+        comodel_name="account.journal"
+    )
+    account_id = fields.Many2one(
+        string="Account",
+        comodel_name="account.account"
     )

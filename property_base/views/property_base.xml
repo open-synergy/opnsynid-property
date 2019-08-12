@@ -4,7 +4,7 @@
 
 <openerp>
     <data>
-        <menuitem 
+        <menuitem
             name="Property"
             id="menu_property_base"
             />

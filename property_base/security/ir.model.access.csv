@@ -3,3 +3,7 @@ property_object_type_employee,property.object_type - employee,model_property_obj
 property_object_type_all,property.object_type - all,model_property_object_type,,1,0,0,0
 property_object_employee,property.object - employee,model_property_object,base.group_user,1,1,1,1
 property_object_all,property.object - all,model_property_object,,0,0,0,0
+property_floor_employee,property.floor - employee,model_property_floor,base.group_user,1,1,1,1
+property_floor_all,property.floor - all,model_property_floor,,0,0,0,0
+property_block_employee,property.block - employee,model_property_block,base.group_user,1,1,1,1
+property_block_all,property.block - all,model_property_block,,0,0,0,0
