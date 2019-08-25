@@ -4,10 +4,17 @@
 
 <openerp>
     <data>
-        <menuitem 
+        <menuitem
             name="Property"
             id="menu_property_base"
             />
+
+            <menuitem
+                name="Property"
+                id="menu_property"
+                sequence="1"
+                parent="menu_property_base"
+                />
 
         <menuitem
             name="Configuration"
