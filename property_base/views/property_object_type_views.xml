@@ -11,6 +11,8 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="need_parent"/>
+                    <field name="occupy_ok"/>
                 </tree>
             </field>
         </record>
@@ -20,14 +22,31 @@
             <field name="model">property.object_type</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="action_create_menu" string="Create Menu" type="object" attrs="{'invisible':[('menu_id','!=',False)]}"/>
+                        <button name="action_reload" string="Reload Menu" type="object" attrs="{'invisible':[('menu_id','=',False)]}"/>
+                    </header>
                     <sheet>
                         <group col="2" colspan="2">
                             <field name="name"/>
                             <field name="active"/>
+                            <field name="occupy_ok"/>
+                            <field name="need_parent"/>
+                            <field name="allowed_parent_type_ids" widget="many2many_tags"/>
                         </group>
                         <notebook>
-                            <page name="page_note" sring="Note">
+                            <page name="display_format" string="Display Format">
+                                <field name="display_name_format"/>
+                            </page>
+                            <page name="page_note" string="Note">
                                 <field name="note"/>
+                            </page>
+                            <page name="technical" string="Technical">
+                                <group name="technical_1" colspan="4" col="2">
+                                    <field name="menu_sequence"/>
+                                    <field name="window_action_id"/>
+                                    <field name="menu_id"/>
+                                </group>
                             </page>
                         </notebook>
                     </sheet>
@@ -48,7 +67,7 @@
             id="property_object_type_menu"
             action="property_object_type_action"
             parent="menu_property_base_config"
-            sequence="4"/>
+            sequence="1"/>
 
     </data>
 </openerp>

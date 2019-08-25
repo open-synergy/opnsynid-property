@@ -5,4 +5,6 @@
 from . import (
     property_object_type,
     property_object,
+    property_tenacy_status,
+    property_availability_status,
 )
