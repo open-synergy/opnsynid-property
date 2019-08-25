@@ -29,3 +29,7 @@ class PropertyMeasurementItem(models.Model):
         compute="_compute_allowed_qualitative_option_ids",
         store=False,
     )
+    date_answer = fields.Datetime(
+        related="measurement_id.real_date_end",
+        store=True,
+    )
