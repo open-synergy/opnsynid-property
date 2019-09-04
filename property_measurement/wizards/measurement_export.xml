@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+        <record id="property_measurement_export_view_form" model="ir.ui.view">
+            <field name="name">property.measurement.export.form</field>
+            <field name="model">property.measurement.export</field>
+            <field name="inherit_id" ref="measurement_import_export_common.measurement_export_view_form"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <data>
+                </data>
+            </field>
+        </record>
+
+        <record id="property_measurement_export_action" model="ir.actions.act_window">
+            <field name="name">Export Measurement</field>
+            <field name="res_model">property.measurement.export</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="property_measurement_export_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <record id="measurement_property_export_values" model="ir.values">
+            <field name="model_id" ref="model_property_measurement_export" />
+            <field name="name">Export</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('property_measurement_export_action'))" />
+            <field name="key">action</field>
+            <field name="model">property.measurement</field>
+        </record>
+    </data>
+</openerp>
