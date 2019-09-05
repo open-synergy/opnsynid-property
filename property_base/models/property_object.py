@@ -116,19 +116,23 @@ class PropertyObject(models.Model):
         ],
     )
     tenant_id = fields.Many2one(
-        string="Tenant",
+        string="Occupant",
         comodel_name="res.partner",
         domain=[
             ("parent_id", "=", False),
         ],
     )
     tenacy_status_id = fields.Many2one(
-        string="Tenacy Status",
+        string="Occupancy Status",
         comodel_name="property.tenacy_status",
     )
     availability_status_id = fields.Many2one(
         string="Availability Status",
         comodel_name="property.availability_status",
+    )
+    product_id = fields.Many2one(
+        string="Product Link",
+        comodel_name="product.product",
     )
 
     @api.onchange(

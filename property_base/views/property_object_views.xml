@@ -40,6 +40,7 @@
                     <field name="parent_id" attrs="{'required':[('need_parent','=',True)]}" domain="[('type_id','in',allowed_parent_type_ids[0][2])]"/>
                     <field name="size"/>
                     <field name="size_uom_id"/>
+                    <field name="product_id"/>
                 </group>
                 <notebook>
                     <page name="owner" string="Owner Information">
@@ -47,7 +48,7 @@
                             <field name="owner_id"/>
                         </group>
                     </page>
-                    <page name="tenant" string="Tenant Information" attrs="{'invisible':[('occupy_ok','=',False)]}">
+                    <page name="occupancy" string="Occupancy Information" attrs="{'invisible':[('occupy_ok','=',False)]}">
                         <group name="tenant1" colspan="4" col="2">
                             <field name="availability_status_id"/>
                             <field name="tenant_id"/>
