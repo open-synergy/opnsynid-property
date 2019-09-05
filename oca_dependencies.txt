@@ -16,3 +16,4 @@
 opnsynid-server-tools https://github.com/open-synergy/opnsynid-server-tools 8.0
 opnsynid-mro https://github.com/open-synergy/opnsynid-mro 8.0
 opnsynid-measurement https://github.com/open-synergy/opnsynid-measurement 8.0
+opnsynid-rental https://github.com/open-synergy/opnsynid-rental 8.0
