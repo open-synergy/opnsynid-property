@@ -44,12 +44,22 @@
     </field>
 </record>
 
+<record id="measurement_property_view_kanban" model="ir.ui.view">
+    <field name="name">property.measurement.kanban</field>
+    <field name="model">property.measurement</field>
+    <field name="inherit_id" ref="measurement_common.measurement_common_view_kanban"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
 <record id="measurement_property_action" model="ir.actions.act_window">
     <field name="name">Measurements for Property</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">property.measurement</field>
     <field name="view_type">form</field>
-    <field name="view_mode">tree,calendar,form</field>
+    <field name="view_mode">kanban,tree,calendar,form</field>
 </record>
 
 <menuitem
