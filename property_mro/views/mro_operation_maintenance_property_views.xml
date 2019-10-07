@@ -44,12 +44,22 @@
     </field>
 </record>
 
+<record id="mro_operation_maintenance_property_view_kanban" model="ir.ui.view">
+    <field name="name">mro.operation_maintenance_property.kanban</field>
+    <field name="model">mro.operation_maintenance_property</field>
+    <field name="inherit_id" ref="mro_common.mro_operation_maintenance_common_view_kanban"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data/>
+    </field>
+</record>
+
 <record id="mro_operation_maintenance_property_action" model="ir.actions.act_window">
     <field name="name">Maintenances for Equipment</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">mro.operation_maintenance_property</field>
     <field name="view_type">form</field>
-    <field name="view_mode">tree,calendar,form</field>
+    <field name="view_mode">kanban,tree,calendar,form</field>
 </record>
 
 <menuitem
