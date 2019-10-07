@@ -2,7 +2,9 @@
 # Copyright 2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning as UserError
+from datetime import datetime
 
 
 class RentalProperty(models.Model):
@@ -46,3 +48,21 @@ class RentalProperty(models.Model):
     upfront_cost_ids = fields.One2many(
         comodel_name="rental.property_upfront_cost",
     )
+
+    @api.model
+    def run_create_invoice(self):
+        obj_schedule =\
+            self.env["rental.property_detail_schedule"]
+        date_now =\
+            datetime.now().strftime("%Y-%m-%d")
+        criteria = [
+            ("date", "=", date_now)
+        ]
+        schedule_ids = obj_schedule.search(criteria)
+        if schedule_ids:
+            for schedule in schedule_ids:
+                if schedule.rental_state == "open":
+                    schedule._create_invoice()
+                    schedule.write({
+                        "state": "post",
+                    })
