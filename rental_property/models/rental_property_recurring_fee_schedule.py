@@ -18,6 +18,14 @@ class RentalPropertyRecurringFeeSchedule(models.Model):
         _super = super(RentalPropertyRecurringFeeSchedule, self)
         _super._compute_rental_state()
 
+    @api.multi
+    @api.depends(
+        "recurring_fee_id.detail_id.rental_id.state",
+    )
+    def _compute_rental_state(self):
+        _super = super(RentalPropertyRecurringFeeSchedule, self)
+        _super._compute_rental_state()
+
     recurring_fee_id = fields.Many2one(
         string="Details",
         comodel_name="rental.property_recurring_fee",
@@ -25,3 +33,6 @@ class RentalPropertyRecurringFeeSchedule(models.Model):
     invoice_id = fields.Many2one(
         related="invoice_line_id.invoice_id",
     )
+    state = fields.Selection(
+        compute="_compute_state",
+    )    

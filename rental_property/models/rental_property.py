@@ -11,6 +11,7 @@ class RentalProperty(models.Model):
     _inherit = [
         "rental.common",
     ]
+    _rental_invoice_schedule_model = "rental.property_detail_schedule"
 
     @api.multi
     @api.depends(
