@@ -75,3 +75,16 @@ class RentalPropertyDetail(models.Model):
         column1="property_detail_id",
         column2="tax_id"
     )
+
+    partner_id = fields.Many2one(
+        string="Partner",
+        related="rental_id.partner_id",
+        readonly=True,
+        store=True,
+    )
+    payment_term_id = fields.Many2one(
+        string="Payment Terms",
+        related="rental_id.payment_term_id",
+        readonly=True,
+        store=True,
+    )

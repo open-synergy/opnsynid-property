@@ -14,9 +14,22 @@ class RentalPropertyDetailSchedule(models.Model):
     _description = "Rental Property Schedule"
 
     @api.multi
+    @api.depends(
+        "detail_id.rental_id.state",
+    )
     def _compute_rental_state(self):
         _super = super(RentalPropertyDetailSchedule, self)
         _super._compute_rental_state()
+
+    @api.multi
+    @api.depends(
+        "manual",
+        "invoice_id",
+        "invoice_id.state",
+    )
+    def _compute_state(self):
+        _super = super(RentalPropertyDetailSchedule, self)
+        _super._compute_state()
 
     detail_id = fields.Many2one(
         string="Details",
@@ -24,4 +37,24 @@ class RentalPropertyDetailSchedule(models.Model):
     )
     invoice_id = fields.Many2one(
         related="invoice_line_id.invoice_id",
+        store=True,
+    )
+    rental_id = fields.Many2one(
+        related="detail_id.rental_id",
+        comodel_name="rental.property",
+        store=True,
+    )
+    partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        related="detail_id.rental_id.partner_id",
+        store=True,
+    )
+    object_id = fields.Many2one(
+        string="Property",
+        comodel_name="property.object",
+        related="detail_id.object_id",
+        store=True,
+    )
+    state = fields.Selection(
+        compute="_compute_state",
     )

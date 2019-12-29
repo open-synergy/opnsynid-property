@@ -18,6 +18,14 @@ class RentalPropertyRecurringFee(models.Model):
         _super = super(RentalPropertyRecurringFee, self)
         _super._compute_rental_state()
 
+    @api.multi
+    @api.depends(
+        "type_id",
+    )
+    def _compute_allowed_product(self):
+        _super = super(RentalPropertyRecurringFee, self)
+        _super._compute_allowed_product()
+
     detail_id = fields.Many2one(
         string="Details",
         comodel_name="rental.property_detail",
