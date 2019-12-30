@@ -52,7 +52,7 @@
     />
 
 <menuitem
-    id="property_rental_detail_menu"
+    id="property_rental_detail_schedule_menu"
     name="Rental Invoice Schedules"
     parent="property_rental_root_menu"
     action="rental_property_detail_schedule_action"
